@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema attributeFormDefault="unqualified"
+	elementFormDefault="unqualified"
+	targetNamespace="http://www.edreams.com"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.edreams.com" xmlns="ed">
+
+<!--Elemento global -->
+	
+	<xsd:element name="reserva" type="ed:reserva">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="Unbounded" name="billete" type="tBillete">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+<!-- Elementos de tipo complejo -->
+	
+	<!-- Declaración de tipos complejos -->
+
+	<xsd:complexType name="tBillete">
+		<xsd:sequence>
+			<xsd:element name="vuelo" type="tVuelo"></xsd:element>
+			<xsd:element name="fecha" type="tFecha"></xsd:element>
+			<xsd:element name="pasajeros" type="tPasajeros"></xsd:element>
+			<xsd:element name="clase" type="tClase"></xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="unsignedLong" form="qualified"><xsd:attribute></xsd:attribute>
+	</xsd:complexType>
+
+	<!-- Definición de tipos complejos -->
+
+	<xsd:complexType name="tVuelo">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="Ida"></xsd:element>
+				<xsd:element name="IdaYVuelta"></xsd:element>
+				<xsd:element name="Multidestino"></xsd:element>
+			</xsd:choice>
+			<xsd:element name="Salida"></xsd:element>
+			<xsd:element name="Destino"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complextype name="tFecha">
+		<xsd:sequence>
+			<xsd:element name="fechaSalida"></xsd:element>
+			<xsd:element name="fechaRegreso"></xsd:element>
+		</xsd:sequence>
+	</xsd:complextype>
+	
+	<xsd:complextype name="tPasajeros">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="adultos" type="tAdultos"></xsd:element>
+			<xsd:element minOccurs="0" name="niños" type="tNiños"></xsd:element>
+			<xsd:element minOccurs="0" name="bebés" type="tBebés"></xsd:element>
+		</xsd:sequence>
+	</xsd:complextype>
+
+<!-- Elementos de tipo simple -->
+	
+	<xsd:simpleType name="clase">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="turista"></xsd:enumeration>
+			<xsd:enumeration value="turista superior"></xsd:enumeration>
+			<xsd:enumeration value="business"></xsd:enumeration>
+			<xsd:enumeration value="primera"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tAdultos">
+
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclussive value="1"></xsd:minInclussive>
+			<xsd:maxInclussive value="9"></xsd:maxInclussive>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tNiños">
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[0-9]" minOccurs="2" maxOccurs="11"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tBebés">
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[0-9]" minOccurs="0" maxOccurs="2"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+

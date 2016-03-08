@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ed:reserva
+xmlns:ed="http://www.edreams.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.edreams.com edreams.xsd">
+
+	 <billete id="2314234232">
+	 
+    <vuelo>
+      <origen> Palma (PMI) </origen>
+      <destino> Barcelona (BCN)  </destino>
+      <idayvuelta/>
+    </vuelo>
+    
+    <fecha>
+      <fechaSalida>2005-10-26</fechaSalida>
+      <fechaRegreso>2005-10-30</fechaRegreso>
+     </fecha>
+     
+    <pasajeros>
+      <adultos>1</adultos>
+      <niños>1</niños>
+     <bebés>0</bebés>
+    </pasajeros>
+    
+    <clase>turista</clase>
+   
+  </billete>
+  
+</ed:vuelo>
