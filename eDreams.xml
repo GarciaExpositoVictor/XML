@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.03" encoding="UTF-8"?>
+
 <ed:reserva
 xmlns:ed="http://www.edreams.com"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.edreams.com edreams.xsd">
+xs:schemaLocation="http://www.edreams.com eDreams.xsd">
 
 	 <billete id="2314234232">
 	 

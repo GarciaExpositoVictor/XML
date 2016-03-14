@@ -95,7 +95,7 @@
 			<xs:enumeration value="ARK" /><!-- airport="Arusha" country="Tanzania" -->
 			<xs:enumeration value="GPA" /><!-- airport="Araxos" country="Greece" -->
 			<xs:enumeration value="RLT" /><!-- airport="Arlit" country="Niger" -->
-			<xs:enumeration value="AXS" /><!-- airport="Armenia" country="Colombia" -->
+			<xs:enumeration value="Axs" /><!-- airport="Armenia" country="Colombia" -->
 			<xs:enumeration value="ACE" /><!-- airport="Arrecife/Lanzarote" country="Spain" -->
 			<xs:enumeration value="AUA" /><!-- airport="Aruba" country="Aruba" -->
 			<xs:enumeration value="AVL" /><!-- airport="Asheville" country="USA" -->
@@ -212,7 +212,7 @@
 			<xs:enumeration value="BOB" /><!-- airport="Bora Bora" country="French Polynesia" -->
 			<xs:enumeration value="BOD" /><!-- airport="Bordeaux" country="France" -->
 			<xs:enumeration value="HBH" /><!-- airport="Borg El Arab" country="Egypt" -->
-			<xs:enumeration value="BXS" /><!-- airport="Borrego Springs" country="USA" -->
+			<xs:enumeration value="Bxs" /><!-- airport="Borrego Springs" country="USA" -->
 			<xs:enumeration value="BOS" /><!-- airport="Boston - Logan" country="USA" -->
 			<xs:enumeration value="BYK" /><!-- airport="Bouake" country="Ivory Coast" -->
 			<xs:enumeration value="BOJ" /><!-- airport="Bourgas/Burgas" country="Bulgaria" -->
