@@ -1,16 +1,16 @@
-<?xml version="1.03" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ed:reserva
 xmlns:ed="http://www.edreams.com"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xs:schemaLocation="http://www.edreams.com eDreams.xsd">
+xsi:schemaLocation="http://www.edreams.com eDreams.xsd">
 
-	 <billete id="2314234232">
+	<billete>
 	 
     <vuelo>
-      <origen> Palma (PMI) </origen>
-      <destino> Barcelona (BCN)  </destino>
-      <idayvuelta/>
+    <Multidestino />
+    	<Salida did="PMI"> Palma (PMI) </Salida>
+    	<Destino did="BCN"> Barcelona (BCN)  </Destino>
     </vuelo>
     
     <fecha>
@@ -18,14 +18,16 @@ xs:schemaLocation="http://www.edreams.com eDreams.xsd">
       <fechaRegreso>2005-10-30</fechaRegreso>
      </fecha>
      
-    <pasajeros>
-      <adultos>1</adultos>
+    <pasajeros xsi:type="ed:extTPasajeros">
+    <ed:jubilados>2</ed:jubilados>
+      <ed:adultos>1</ed:adultos>
       <niños>1</niños>
-     <bebés>0</bebés>
+     <bebes>0</bebes>
+     <bichos>1</bichos>
     </pasajeros>
     
     <clase>turista</clase>
    
-  </billete>
+  	</billete>
   
-</ed:vuelo>
+</ed:reserva>

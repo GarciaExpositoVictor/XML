@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema 
+	attributeFormDefault="unqualified"
+	elementFormDefault="unqualified"
+	targetNamespace="http://www.edreams.com"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:ed="http://www.edreams.com">
+	
+	<xsd:complexType name="tPasajeros">
+		<xsd:sequence>
+			<xsd:element ref="ed:adultos" maxOccurs="3">
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="niños"
+				type="ed:pasajerosMenores">
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="bebes"
+				type="ed:pasajerosMenores">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="pasajerosAdultos">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="1"></xsd:minInclusive>
+			<xsd:maxInclusive value="9"></xsd:maxInclusive>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="pasajerosMenores">
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[0-9]"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- tipo derivado: extensión de tipos complejos -->
+
+	<xsd:complexType name="extTPasajeros">
+		<xsd:complexContent>
+			<xsd:extension base="ed:tPasajeros">
+				<xsd:sequence>
+					<xsd:element name="bichos" type="xsd:integer"></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!-- Elementos de tipo simple incluídos -->
+	
+	<xsd:simpleType name="tClase">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="turista"></xsd:enumeration>
+			<xsd:enumeration value="turista superior"></xsd:enumeration>
+			<xsd:enumeration value="business"></xsd:enumeration>
+			<xsd:enumeration value="primera"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tAdultos">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="1"></xsd:minInclusive>
+			<xsd:maxInclusive value="9"></xsd:maxInclusive>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tNiños">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="1"></xsd:minInclusive>
+			<xsd:maxInclusive value="9"></xsd:maxInclusive>
+			<xsd:pattern value="[0-9]"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tBebes">
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[0-9]"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!-- tipo derivado: extensión de tipos complejos -->
+
+	<xsd:complexType name="Pasajeros">
+		<xsd:complexContent>
+			<xsd:extension base="ed:tPasajeros">
+				<xsd:sequence>
+					<xsd:element name="bichos" type="xsd:integer"></xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--  grupo de substitución -->
+	
+	<xsd:element name="adultos" type="ed:tAdultos">
+
+	</xsd:element>
+	
+	<xsd:element name="jubilados" type="ed:tAdultos" substitutionGroup="ed:adultos"/>
+	<xsd:element name="estudiantes" type="ed:tAdultos" substitutionGroup="ed:adultos">
+	</xsd:element>
+
+</xsd:schema>

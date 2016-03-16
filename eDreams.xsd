@@ -1,94 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xs:schema 
+<xsd:schema 
 	attributeFormDefault="unqualified"
 	elementFormDefault="unqualified"
 	targetNamespace="http://www.edreams.com"
 	xmlns:ed="http://www.edreams.com"
-	xmlns:xs=http://www.w3.org/2001/XMLSchema" >
-
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<xsd:import namespace="http://www.iata.com/wac"
+		schemaLocation="WAC.xsd">
+	</xsd:import>
+	
+	<xsd:include schemaLocation="tiposIncluídos.xsd"></xsd:include>
+	
 <!--Elemento global -->
 	
-	<xs:element name="reserva" type="ed:reserva">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element maxOccurs="Unbounded" name="billete" type="tBillete">
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+	<xsd:element name="reserva">
+		
+        <xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" name="billete" type="ed:tBillete">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+    </xsd:element>
 
 <!-- Elementos de tipo complejo -->
 	
 	<!-- Declaración de tipos complejos -->
 
-	<xs:complexType name="tBillete">
-		<xs:sequence>
-			<xs:element name="vuelo" type="tVuelo"></xs:element>
-			<xs:element name="fecha" type="tFecha"></xs:element>
-			<xs:element name="pasajeros" type="tPasajeros"></xs:element>
-			<xs:element name="clase" type="tClase"></xs:element>
-		</xs:sequence>
-		<xs:attribute name="id" type="unsignedLong" form="qualified"><xs:attribute></xs:attribute>
-	</xs:complexType>
+	<xsd:complexType name="tBillete">
+		<xsd:sequence>
+			<xsd:element name="vuelo" type="ed:tVuelo"></xsd:element>
+			<xsd:element name="fecha" type="ed:tFecha"></xsd:element>
+			<xsd:element name="pasajeros" type="ed:tPasajeros"></xsd:element>
+			<xsd:element name="clase" type="ed:tClase"></xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:unsignedLong" form="qualified"></xsd:attribute>
+	</xsd:complexType>
 
 	<!-- Definición de tipos complejos -->
 
-	<xs:complexType name="tVuelo">
-		<xs:sequence>
-			<xs:choice>
-				<xs:element name="Ida"></xs:element>
-				<xs:element name="IdaYVuelta"></xs:element>
-				<xs:element name="Multidestino"></xs:element>
-			</xs:choice>
-			<xs:element name="Salida"></xs:element>
-			<xs:element name="Destino"></xs:element>
-		</xs:sequence>
-	</xs:complexType>
+	<xsd:complexType name="tVuelo">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="Ida"></xsd:element>
+				<xsd:element name="IdaYVuelta"></xsd:element>
+				<xsd:element name="Multidestino"></xsd:element>
+			</xsd:choice>
+			<xsd:element name="Salida"></xsd:element>
+			<xsd:element name="Destino"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
 
-	<xs:complextype name="tFecha">
-		<xs:sequence>
-			<xs:element name="fechaSalida"></xs:element>
-			<xs:element name="fechaRegreso"></xs:element>
-		</xs:sequence>
-	</xs:complextype>
+	<xsd:complexType name="tFecha">
+		<xsd:sequence>
+			<xsd:element name="fechaSalida"></xsd:element>
+			<xsd:element name="fechaRegreso"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
 	
-	<xs:complextype name="tPasajeros">
-		<xs:sequence>
-			<xs:element minOccurs="0" name="adultos" type="tAdultos"></xs:element>
-			<xs:element minOccurs="0" name="niños" type="tNiños"></xs:element>
-			<xs:element minOccurs="0" name="bebés" type="tBebés"></xs:element>
-		</xs:sequence>
-	</xs:complextype>
-
-<!-- Elementos de tipo simple -->
 	
-	<xs:simpleType name="clase">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="turista"></xs:enumeration>
-			<xs:enumeration value="turista superior"></xs:enumeration>
-			<xs:enumeration value="business"></xs:enumeration>
-			<xs:enumeration value="primera"></xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
+	
+		
 
-	<xs:simpleType name="tAdultos">
-
-		<xs:restriction base="xs:integer">
-			<xs:minInclussive value="1"></xs:minInclussive>
-			<xs:maxInclussive value="9"></xs:maxInclussive>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="tNiños">
-		<xs:restriction base="xs:integer">
-			<xs:pattern value="[0-9]" minOccurs="2" maxOccurs="11"></xs:pattern>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="tBebés">
-		<xs:restriction base="xs:integer">
-			<xs:pattern value="[0-9]" minOccurs="0" maxOccurs="2"></xs:pattern>
-		</xs:restriction>
-	</xs:simpleType>
-
+</xsd:schema>
